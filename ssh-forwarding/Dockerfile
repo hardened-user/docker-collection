@@ -8,7 +8,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo "$TZ" >  /etc/timezone
 
 ENV HOME="/home/sshfwd"
-ENV USER="app"
+ENV USER="sshfwd"
 RUN groupadd -g 1000 "${USER}" && \
     useradd -r --uid 1000 --gid 1000 -m -d "${HOME}" -s /sbin/nologin "${USER}" && \
     mkdir "${HOME}"/.ssh && \
