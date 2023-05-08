@@ -13,7 +13,7 @@ ENV PYTHONIOENCODING="utf8"
 
 ### APK packages
 RUN apk update && \
-    apk add tzdata bash openssh-client rsync && \
+    apk add tzdata bash openssh-client rsync git && \
     apk add gcc libc-dev && \
     rm -rf /var/cache/apk/*
 
@@ -35,3 +35,6 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 
 ### ruamel.yaml.clib-0.2.7.tar.gz
 # gcc libc-dev
+
+### ansible-lint
+# git
