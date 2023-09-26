@@ -1,10 +1,13 @@
-FROM alpine:3.16
+FROM alpine:3.18
 
 ENV TZ="Europe/Moscow"
 
 
 ### APK packages
-RUN apk add --no-cache bash busybox-extras ca-certificates iputils bind-tools curl wget jq nano && \
+RUN apk add --no-cache bash busybox-extras ca-certificates \
+    jq nano \
+    bind-tools curl iputils wget \
+    postgresql && \
     rm -rf /var/cache/apk/*
 
 RUN apk add --no-cache g++ python3 py3-pip && \
