@@ -1,4 +1,5 @@
 ansible~=7.0
 ansible-lint~=6.0
+molecule~=5.0
 netaddr
 passlib
