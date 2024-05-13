@@ -6,7 +6,7 @@ ENV TZ="Europe/Moscow"
 ### APK packages
 RUN apk add --no-cache bash busybox-extras ca-certificates \
     jq nano \
-    bind-tools curl iputils wget \
+    bind-tools curl iputils wget tcpdump \
     postgresql && \
     rm -rf /var/cache/apk/*
 
