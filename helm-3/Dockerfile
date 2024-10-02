@@ -1,4 +1,4 @@
-FROM alpine/helm:3.15.3
+FROM alpine/helm:3.16.1
 
 ARG USER_NAME=helm
 ARG USER_UID=1000
