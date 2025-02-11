@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
 ARG JAVA_VERSION=0
 ARG KAFKA_VERSION=0.0.0
@@ -8,7 +8,7 @@ ENV TZ="Europe/Moscow"
 
 ### APK packages
 RUN apk add --no-cache bash busybox-extras ca-certificates \
-    nano wget openjdk${JAVA_VERSION}-jre && \
+    nano wget openjdk${JAVA_VERSION}-jre kcat && \
     rm -rf /var/cache/apk/*
 
 ### Apache Kafka
