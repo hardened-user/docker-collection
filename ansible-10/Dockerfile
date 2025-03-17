@@ -13,7 +13,7 @@ ENV PYTHONIOENCODING="utf8"
 
 ### APK packages
 RUN apk update && \
-    apk add tzdata bash openssh-client rsync && \
+    apk add tzdata bash openssh-client rsync git && \
     rm -rf /var/cache/apk/*
 
 ### Add user
