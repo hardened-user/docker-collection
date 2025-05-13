@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
 ENV TZ="Europe/Moscow"
 
@@ -10,6 +10,7 @@ RUN apk add --no-cache \
       nano rsync curl wget jq \
       postgresql \
       python3 py3-pip py3-requests py3-psycopg2 && \
+    rm -rf /usr/sbin/nanddump /usr/sbin/nandwrite && \
     rm -rf /var/cache/apk/*
 
 
