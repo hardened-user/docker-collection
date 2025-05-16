@@ -22,11 +22,15 @@ RUN addgroup -g "${USER_GID}" "${USER_NAME}" && \
     mkdir /ansible
 
 ### Python packages
-COPY requirements.txt /
-RUN pip3 --disable-pip-version-check install -r /requirements.txt
+RUN --mount=type=bind,source=requirements.txt,target=/requirements.txt \
+    pip3 --disable-pip-version-check install -r /requirements.txt
 
 USER ${USER_NAME}
 WORKDIR /ansible
+
+### Ansible Galaxy
+RUN --mount=type=bind,source=galaxy-collections.yaml,target=/galaxy-collections.yaml \
+    ansible-galaxy collection install -r /galaxy-collections.yaml
 
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
