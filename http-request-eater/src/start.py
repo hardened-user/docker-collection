@@ -38,9 +38,13 @@ def catch_all(path):
         msg += "\u25CB URL params:\n{0}\n".format(tmp)
     if request.form:
         tmp = '\n'.join(["""    '{0}': '{1}'""".format(x, request.form[x]) for x in request.form])
-        msg += "\u25CB Form data:\n{0}\n".format(tmp)
+        msg += "\u25CB Form:\n{0}\n".format(tmp)
     if request.data:
-        msg += "\u25CB Body data:\n{}\n".format(request.data)
+        try:
+            tmp = request.data.decode('utf-8')
+        except UnicodeDecodeError:
+            tmp = request.data
+        msg += "\u25CB Data:\n{}\n".format(tmp)
     if request.files:
         tmp = '\n'.join(["""    '{0}': {1}""".format(x, request.files[x]) for x in request.files])
         msg += "\u25CB Files:\n{0}\n".format(tmp)
