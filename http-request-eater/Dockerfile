@@ -13,7 +13,7 @@ ENV PYTHONIOENCODING="utf8"
 
 ### APK packages
 RUN apk update && \
-    apk add tzdata bash && \
+    apk add tzdata bash curl && \
     rm -rf /var/cache/apk/*
 
 ### Add user
