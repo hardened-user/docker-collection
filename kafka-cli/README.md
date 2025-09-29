@@ -1,5 +1,8 @@
 # Kafka Command Line Interface (CLI) Tools
 
+https://hub.docker.com/r/hardeneduser/kafka-cli
+
+
 ```
 connect-distributed.sh
 connect-mirror-maker.sh
