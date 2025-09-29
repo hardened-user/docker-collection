@@ -7,8 +7,9 @@ ARG SCALA_VERSION=0.0
 ENV TZ="Europe/Moscow"
 
 ### APK packages
-RUN apk add --no-cache bash busybox-extras ca-certificates \
-    nano wget openjdk${JAVA_VERSION}-jre kcat && \
+RUN apk add --no-cache \
+      bash busybox-extras ca-certificates nano wget openssl \
+      openjdk${JAVA_VERSION}-jre kcat && \
     rm -rf /var/cache/apk/*
 
 ### Apache Kafka
@@ -26,3 +27,4 @@ ENV PATH="/opt/kafka/bin:${PATH}"
 ### Entrypoint
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
+WORKDIR /opt/kafka
