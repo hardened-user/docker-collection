@@ -13,7 +13,7 @@ RUN apk add --no-cache \
     rm -rf /var/cache/apk/*
 
 ### Apache Kafka
-# https://dlcdn.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
+# RUN wget -nv "https://dlcdn.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" -O /tmp/kafka.tgz && \
 RUN wget -nv "https://archive.apache.org/dist/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" -O /tmp/kafka.tgz && \
     tar -xzf /tmp/kafka.tgz -C /opt && \
     mv /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} /opt/kafka && \
