@@ -8,7 +8,7 @@ ENV TZ="Europe/Moscow"
 
 ### APK packages
 RUN apk add --no-cache \
-      bash busybox-extras ca-certificates nano wget openssl \
+      bash busybox-extras ca-certificates nano curl wget openssl \
       openjdk${JAVA_VERSION}-jre kcat && \
     rm -rf /var/cache/apk/*
 
