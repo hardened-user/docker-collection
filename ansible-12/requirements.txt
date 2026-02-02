@@ -13,3 +13,6 @@ jmespath~=1.0
 
 # community.hashi_vault.*
 hvac~=2.0
+
+# community.general.gitlab_project
+python-gitlab~=8.0
