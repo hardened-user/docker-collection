@@ -1,0 +1,18 @@
+ansible~=13.0
+ansible-lint~=26.0
+molecule~=25.0
+
+# ansible.utils.ipaddr
+netaddr~=1.0
+
+# ansible.builtin.password_hash
+passlib~=1.0
+
+# community.general.json_query
+jmespath~=1.0
+
+# community.hashi_vault.*
+hvac~=2.0
+
+# community.general.gitlab_project
+python-gitlab~=8.0
