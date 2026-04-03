@@ -1,5 +1,5 @@
 #!/bin/bash
-docker run -it --rm --network host --name ansible-13-playbook \
+docker run -it --rm --network host --name ansible-13-playbook-$RANDOM \
   $(test -f .env && echo "--env-file .env") \
   -v $(pwd):/ansible \
   -v ~/.ssh:/home/ansible/.ssh:ro \
