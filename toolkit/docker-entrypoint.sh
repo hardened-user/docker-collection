@@ -1,8 +1,8 @@
 #!/bin/bash
 # ----------------------------------------------------------------------------------------------------------------------
-if [ -z "$@" ]; then
+if [[ -z "$@" ]]; then
   # starting cmd
-  exec /bin/bash -c "sleep infinity";
+  exec /bin/bash
 else
   # overriding cmd (example: /bin/bash)
   exec $@;
