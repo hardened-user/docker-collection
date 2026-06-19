@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h1>
+    Привет,
+    {% if user and user.preferred_username %}
+        {{ user.preferred_username }} ({{ user.name }})
+    {%- elif user %}
+        {{ user.name }}
+    {%- else %}
+        Гость
+    {%- endif %}!
+</h1>
+
+<div style="position: absolute; right: 20px; top: 20px;">
+    {% if user %}
+        <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+    {% endif %}
+</div>
+
+<div class="oauth-info">
+    <h4>OAuth Configuration:</h4>
+    <pre class="oauth-pre">
+provider: keycloak
+url: {{ url }}/.well-known/openid-configuration
+client_id: {{ client_id }}
+scope: {{ scope }}
+    </pre>
+</div>
+
+{% if user %}
+    <h3>ID Token:</h3> <pre>{{ token | tojson(indent=2) }}</pre>
+    <h3>UserInfo:</h3> <pre>{{ user | tojson(indent=2) }}</pre>
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+{% else %}
+    <a href="{{ url_for('login') }}"><button>Login with Keycloak</button></a>
+{% endif %}

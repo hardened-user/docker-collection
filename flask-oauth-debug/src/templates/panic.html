@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #111; color: #ffb000; /* Янтарный на черном */
+            font: 13px/1.2 'Courier New', monospace; padding: 30px;
+        }
+        .err { color: #ff5f00; font-weight: bold; } /* Ошибка поярче */
+        .dim { opacity: 0.5; }
+        a {
+            background: #ffb000; color: #111; text-decoration: none;
+            padding: 0 5px; font-weight: bold;
+        }
+        a:hover { background: #fff; }
+        pre { margin: 0; white-space: pre-wrap; }
+        .cursor { border-left: 8px solid #ffb000; animation: b 1s infinite; }
+        @keyframes b { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+<pre>
+--- DATE TIME {{ date }} ---
+
+*** KERNEL_PANIC: CRITICAL_PROCESS_DIED ***
+
+[   0.022766] secureboot: Secure boot disabled
+[   0.023027] CPU: 0 PID: 1 Kernel access of bad area, sig: 11 [#1]
+[   0.023030] MCE: Killing process due to hardware memory corruption fault at 7fe9bc16fb00
+[   0.023035] Call Trace:
+[   0.023038]  [&lt;00000000deadbeef&gt;] internal_server_error+0x42/0x50
+[   0.023044]  [&lt;c0ffee0000000000&gt;] python_runtime_exception
+
+--- SYSTEM HALTED ---
+
+REASON: {{ error_msg }}
+
+<a href="{{ url_for('index') }}">> REBOOT SYSTEM</a><span class="cursor"></span>
+</pre>
+</body>
+</html>
