@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 # ----------------------------------------------------------------------------------------------------------------------
-VERSION="3.16.1"
+VERSION="3.21.1"
 # shellcheck disable=SC2068
 docker build --pull --force-rm --progress=plain \
     --build-arg VERSION="${VERSION}" \
