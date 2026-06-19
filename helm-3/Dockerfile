@@ -1,4 +1,5 @@
-FROM alpine/helm:3.16.1
+ARG VERSION=3
+FROM alpine/helm:${VERSION}
 
 ARG USER_NAME=helm
 ARG USER_UID=1000
@@ -17,8 +18,7 @@ RUN apk update && \
 RUN addgroup -g "${USER_GID}" "${USER_NAME}" && \
     adduser -u "${USER_UID}" -G "${USER_NAME}" -s /bin/sh -D "${USER_NAME}" && \
     chown "${USER_NAME}:${USER_NAME}" "${WORKDIR}" && \
-    # additional groups for file access permission (optional)
-    addgroup -g 987 987 && addgroup "${USER_NAME}" 987 && \
+    # (optional) additional groups for file access permissions \
     addgroup -g 998 998 && addgroup "${USER_NAME}" 998
 
 USER "${USER_NAME}"
