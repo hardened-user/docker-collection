@@ -16,7 +16,8 @@ ENV CLAUDE_CONFIG_DIR="/.claude"
 ADD https://downloads.claude.ai/keys/claude-code.rsa.pub /etc/apk/keys/claude-code.rsa.pub
 RUN echo "https://downloads.claude.ai/claude-code/apk/stable" >> /etc/apk/repositories && \
     apk update && \
-    apk add tzdata su-exec bash git claude-code && \
+    apk add bash tzdata ca-certificates openssh-client su-exec sudo \
+        claude-code python3 git ripgrep jq less && \
     rm -rf /var/cache/apk/*
 
 ### Add user
@@ -25,6 +26,10 @@ RUN getent passwd "${USER_UID}" && deluser --remove-home "$(getent passwd "${USE
     adduser -u "${USER_UID}" -G "${USER_NAME}" -s /bin/bash -D "${USER_NAME}" && \
     mkdir -p "${WORKDIR}" && chown "${USER_NAME}:${USER_NAME}" "${WORKDIR}" && \
     mkdir -p "${CLAUDE_CONFIG_DIR}" && chown "${USER_NAME}:${USER_NAME}" "${CLAUDE_CONFIG_DIR}"
+
+### Allow the user to manage packages via apk without a password
+RUN echo "${USER_NAME} ALL=(root) NOPASSWD: /sbin/apk" > "/etc/sudoers.d/${USER_NAME}" && \
+    chmod 440 "/etc/sudoers.d/${USER_NAME}"
 
 WORKDIR "${WORKDIR}"
 
