@@ -17,7 +17,7 @@ ADD https://downloads.claude.ai/keys/claude-code.rsa.pub /etc/apk/keys/claude-co
 RUN echo "https://downloads.claude.ai/claude-code/apk/stable" >> /etc/apk/repositories && \
     apk update && \
     apk add bash tzdata ca-certificates openssh-client su-exec sudo \
-        claude-code python3 git ripgrep jq less && \
+        claude-code python3 py3-pip curl git ripgrep jq less && \
     rm -rf /var/cache/apk/*
 
 ### Add user
