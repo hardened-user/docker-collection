@@ -10,7 +10,7 @@ ENV TERM="xterm"
 ENV TZ="UTC"
 ENV USER_NAME="${USER_NAME}"
 ENV DISABLE_AUTOUPDATER=1
-ENV CLAUDE_CONFIG_DIR="/.claude"
+ENV CLAUDE_CONFIG_DIR="/home/${USER_NAME}/.claude"
 
 ### APK packages
 ADD https://downloads.claude.ai/keys/claude-code.rsa.pub /etc/apk/keys/claude-code.rsa.pub

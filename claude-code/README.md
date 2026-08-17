@@ -5,8 +5,13 @@ The process inside the container runs as a non-root user, while the current work
 and the `~/.claude` config are mounted from the host as volumes.
 
 Build
-```
+```bash
 $ ./build.sh
+```
+
+Setup Token
+```bash
+docker run -it --rm hardeneduser/claude-code:latest setup-token
 ```
 
 Run
