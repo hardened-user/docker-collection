@@ -18,7 +18,7 @@ RUN echo "https://downloads.claude.ai/claude-code/apk/stable" >> /etc/apk/reposi
     apk update && \
     apk add bash tzdata ca-certificates openssh-client su-exec sudo \
         claude-code curl git github-cli ripgrep jq yq less \
-        python3 py3-pip py3-requests py3-ruamel.yaml && \
+        python3 py3-pip py3-requests py3-yaml py3-ruamel.yaml py3-pillow && \
     rm -rf /var/cache/apk/*
 
 ### Add user
