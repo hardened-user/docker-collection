@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 # ----------------------------------------------------------------------------------------------------------------------
-NODE_VERSION="24"
+NODE_VERSION="26"
 # shellcheck disable=SC2068
 docker build --pull --force-rm --network=host --progress=plain \
     --build-arg NODE_VERSION="${NODE_VERSION}" \
