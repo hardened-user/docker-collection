@@ -1,4 +1,5 @@
-FROM alpine:3.20
+ARG ALPINE_VERSION="latest"
+FROM alpine:${ALPINE_VERSION}
 
 ENV TZ="Europe/Moscow"
 
@@ -7,7 +8,9 @@ ENV TZ="Europe/Moscow"
 RUN apk add --no-cache \
       bash busybox-extras ca-certificates openssh openssl \
       bind-tools iputils tcpdump \
-      nano rsync curl wget jq \
+      s3cmd rsync curl wget \
+      tar pigz xz pixz \
+      nano jq yq \
       postgresql \
       python3 py3-pip py3-requests py3-psycopg2 && \
     rm -rf /usr/sbin/nanddump /usr/sbin/nandwrite && \
