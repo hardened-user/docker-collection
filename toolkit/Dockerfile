@@ -7,7 +7,7 @@ ENV TZ="Europe/Moscow"
 ### APK packages
 RUN apk add --no-cache \
       bash busybox-extras ca-certificates openssh openssl \
-      bind-tools iputils tcpdump \
+      bind-tools iputils tcpdump nmap-ncat \
       s3cmd rsync curl wget \
       tar pigz xz pixz \
       nano jq yq \
