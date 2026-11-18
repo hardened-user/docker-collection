@@ -2,4 +2,4 @@
 docker run -it --rm --network host --name ansible-14-molecule-$RANDOM \
   -v "$(pwd)":/ansible \
   -v ~/.ssh:/home/ansible/.ssh:ro \
-  hardeneduser/ansible:14 molecule $@
+  hardeneduser/ansible:14 molecule "$@"
